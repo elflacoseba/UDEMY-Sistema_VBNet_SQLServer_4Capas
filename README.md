@@ -1,2 +1,9 @@
-# UDEMY-Sistema_VBNet_SQLServer_4Capas
-Sistema de escritorio de gestión de compras y ventas.
+# UDEMY - Sistemas en Visual Basic.Net, SQL Server, 4 capas
+
+### Sistema de escritorio de gestión de compras y ventas.
+
+
+* Gestión de usuarios
+* Permisos y roles
+* Putenticación y autorización
+* Reportes estadísticos
