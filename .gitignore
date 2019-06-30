@@ -4,3 +4,5 @@
 
 /.vs
 /SistemaCompraVenta/.vs
+/SistemaCompraVenta/dbCompraVenta/bin
+/SistemaCompraVenta/dbCompraVenta/obj
