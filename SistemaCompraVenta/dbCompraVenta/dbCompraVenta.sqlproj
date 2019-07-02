@@ -61,6 +61,7 @@
     <Folder Include="Personas" />
     <Folder Include="Roles" />
     <Folder Include="Usuarios" />
+    <Folder Include="Ingresos" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Categorias\Categorias.sql" />
@@ -68,5 +69,6 @@
     <Build Include="Personas\Personas.sql" />
     <Build Include="Roles\Roles.sql" />
     <Build Include="Usuarios\Usuarios.sql" />
+    <Build Include="Ingresos\Ingresos.sql" />
   </ItemGroup>
 </Project>
