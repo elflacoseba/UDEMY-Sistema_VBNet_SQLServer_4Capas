@@ -70,5 +70,6 @@
     <Build Include="Roles\Roles.sql" />
     <Build Include="Usuarios\Usuarios.sql" />
     <Build Include="Ingresos\Ingresos.sql" />
+    <Build Include="Ingresos\Ingresos_Detalle.sql" />
   </ItemGroup>
 </Project>
