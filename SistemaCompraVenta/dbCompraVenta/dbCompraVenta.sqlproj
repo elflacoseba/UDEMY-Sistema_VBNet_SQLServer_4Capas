@@ -58,9 +58,11 @@
     <Folder Include="Properties" />
     <Folder Include="Categorias" />
     <Folder Include="Articulos" />
+    <Folder Include="Personas" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Categorias\Categorias.sql" />
     <Build Include="Articulos\Articulos.sql" />
+    <Build Include="Personas\Personas.sql" />
   </ItemGroup>
 </Project>
