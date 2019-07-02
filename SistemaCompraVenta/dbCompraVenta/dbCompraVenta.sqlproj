@@ -60,11 +60,13 @@
     <Folder Include="Articulos" />
     <Folder Include="Personas" />
     <Folder Include="Roles" />
+    <Folder Include="Usuarios" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Categorias\Categorias.sql" />
     <Build Include="Articulos\Articulos.sql" />
     <Build Include="Personas\Personas.sql" />
     <Build Include="Roles\Roles.sql" />
+    <Build Include="Usuarios\Usuarios.sql" />
   </ItemGroup>
 </Project>
