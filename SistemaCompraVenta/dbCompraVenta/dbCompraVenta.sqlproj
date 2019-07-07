@@ -79,5 +79,6 @@
     <Build Include="Categorias\Categorias_Insertar.sql" />
     <Build Include="Categorias\Categorias_Actualizar.sql" />
     <Build Include="Categorias\Categorias_Eliminar.sql" />
+    <Build Include="Categorias\Categorias_Desactivar.sql" />
   </ItemGroup>
 </Project>
