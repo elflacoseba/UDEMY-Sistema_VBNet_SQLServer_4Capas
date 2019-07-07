@@ -75,5 +75,6 @@
     <Build Include="Ventas\Ventas.sql" />
     <Build Include="Ventas\Ventas_Detalle.sql" />
     <Build Include="Categorias\Categorias_Listar.sql" />
+    <Build Include="Categorias\Categorias_Buscar.sql" />
   </ItemGroup>
 </Project>
