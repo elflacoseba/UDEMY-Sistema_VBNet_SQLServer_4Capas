@@ -98,4 +98,26 @@
             oDatos = Nothing
         End Try
     End Function
+
+    ''' <summary>
+    ''' Elimina una Categoría de la base de datos.
+    ''' </summary>
+    ''' <param name="ID">El ID de la Categoría</param>
+    ''' <returns></returns>
+    Public Function Eliminar(ID As Integer) As Boolean
+
+        Dim oDatos As Datos.Categorias
+
+        Try
+            oDatos = New Datos.Categorias
+            oDatos.Eliminar(ID)
+
+            Return True
+        Catch ex As Exception
+            Throw ex
+            Return False
+        Finally
+            oDatos = Nothing
+        End Try
+    End Function
 End Class
