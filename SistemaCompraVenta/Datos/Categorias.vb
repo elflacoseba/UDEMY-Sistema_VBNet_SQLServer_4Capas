@@ -185,4 +185,29 @@ Public Class Categorias
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Activa una Categoría de la base de datos.
+    ''' </summary>
+    ''' <param name="ID">El ID de la Categoria</param>
+    Public Sub Activar(ID As Integer)
+
+        Try
+
+            Using cmd As New SqlCommand("Categorias_Activar", MyBase.Cnn)
+
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.AddWithValue("@Id", ID)
+
+                MyBase.Cnn.Open()
+
+                cmd.ExecuteNonQuery()
+
+            End Using
+
+        Catch ex As Exception
+            Throw ex
+        Finally
+            MyBase.Cnn.Close()
+        End Try
+    End Sub
 End Class
