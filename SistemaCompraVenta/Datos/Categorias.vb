@@ -132,4 +132,31 @@ Public Class Categorias
             MyBase.Cnn.Close()
         End Try
     End Sub
+
+    ''' <summary>
+    ''' Elimina una Categoría de la base de datos.
+    ''' </summary>
+    ''' <param name="ID">El ID de la Categoria</param>
+    Public Sub Eliminar(ID As Integer)
+
+        Try
+
+            Using cmd As New SqlCommand("Categorias_Eliminar", MyBase.Cnn)
+
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.AddWithValue("@Id", ID)
+
+                MyBase.Cnn.Open()
+
+                cmd.ExecuteNonQuery()
+
+            End Using
+
+        Catch ex As Exception
+            Throw ex
+        Finally
+            MyBase.Cnn.Close()
+        End Try
+    End Sub
+
 End Class
