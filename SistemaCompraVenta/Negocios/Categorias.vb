@@ -30,7 +30,7 @@
     ''' <summary>
     ''' Busca Categorías por nombre y descripción.
     ''' </summary>
-    ''' <param name="Valor"></param>
+    ''' <param name="Valor">Valor a buscar</param>
     ''' <returns></returns>
     Public Function Buscar(Valor As String) As DataTable
 
@@ -58,7 +58,7 @@
     ''' <summary>
     ''' Inserta una nueva Categoría en la base de datos.
     ''' </summary>
-    ''' <param name="obj"></param>
+    ''' <param name="obj">Un objeto del tipo Categoría</param>
     ''' <returns></returns>
     Public Function Insertar(obj As Entidades.Categoria) As Boolean
 
@@ -73,7 +73,29 @@
             Throw ex
             Return False
         Finally
-            oDatos=Nothing
+            oDatos = Nothing
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Actualiza la información de una Categoría en la base de datos.
+    ''' </summary>
+    ''' <param name="obj">Un objeto del tipo Categoría</param>
+    ''' <returns></returns>
+    Public Function Actualizar(obj As Entidades.Categoria) As Boolean
+
+        Dim oDatos As Datos.Categorias
+
+        Try
+            oDatos = New Datos.Categorias
+            oDatos.Actualizar(obj)
+
+            Return True
+        Catch ex As Exception
+            Throw ex
+            Return False
+        Finally
+            oDatos = Nothing
         End Try
     End Function
 End Class
