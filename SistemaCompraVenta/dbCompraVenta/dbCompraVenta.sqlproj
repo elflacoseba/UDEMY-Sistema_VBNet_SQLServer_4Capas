@@ -80,5 +80,6 @@
     <Build Include="Categorias\Categorias_Actualizar.sql" />
     <Build Include="Categorias\Categorias_Eliminar.sql" />
     <Build Include="Categorias\Categorias_Desactivar.sql" />
+    <Build Include="Categorias\Categorias_Activar.sql" />
   </ItemGroup>
 </Project>
