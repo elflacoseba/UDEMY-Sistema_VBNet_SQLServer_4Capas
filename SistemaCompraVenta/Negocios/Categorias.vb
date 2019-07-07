@@ -54,4 +54,26 @@
             Tabla = Nothing
         End Try
     End Function
+
+    ''' <summary>
+    ''' Inserta una nueva Categoría en la base de datos.
+    ''' </summary>
+    ''' <param name="obj"></param>
+    ''' <returns></returns>
+    Public Function Insertar(obj As Entidades.Categoria) As Boolean
+
+        Dim oDatos As Datos.Categorias
+
+        Try
+            oDatos = New Datos.Categorias
+            oDatos.Insertar(obj)
+
+            Return True
+        Catch ex As Exception
+            Throw ex
+            Return False
+        Finally
+            oDatos=Nothing
+        End Try
+    End Function
 End Class
