@@ -77,4 +77,31 @@ Public Class Categorias
             Resultados = Nothing
         End Try
     End Function
+
+    ''' <summary>
+    ''' Inserta una nueva Categoría en la base de datos.
+    ''' </summary>
+    ''' <param name="obj">Un objeto del tipo Categoria</param>
+    Public Sub Buscar(obj As Entidades.Categoria)
+
+        Try
+
+            Using cmd As New SqlCommand("Categorias_Insertar", MyBase.Cnn)
+
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.AddWithValue("@Nombre", obj.Nombre)
+                cmd.Parameters.AddWithValue("@Descripcion", obj.Descripcion)
+
+                MyBase.Cnn.Open()
+
+                cmd.ExecuteNonQuery()
+
+            End Using
+
+        Catch ex As Exception
+            Throw ex
+        Finally
+            MyBase.Cnn.Close()
+        End Try
+    End Sub
 End Class
