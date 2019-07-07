@@ -78,5 +78,6 @@
     <Build Include="Categorias\Categorias_Buscar.sql" />
     <Build Include="Categorias\Categorias_Insertar.sql" />
     <Build Include="Categorias\Categorias_Actualizar.sql" />
+    <Build Include="Categorias\Categorias_Eliminar.sql" />
   </ItemGroup>
 </Project>
