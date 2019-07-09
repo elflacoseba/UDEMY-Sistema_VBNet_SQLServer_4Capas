@@ -38,4 +38,29 @@ Public Class frmPrincipal
             Me.Close()
         End If
     End Sub
+
+    Private Sub CategoríasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoríasToolStripMenuItem.Click
+        Dim CrearForm As Boolean = True
+        For Each unForm As Form In Application.OpenForms
+            If unForm.Name = "frmCategorias" Then
+                CrearForm = False
+                Exit For
+            End If
+        Next
+
+        If CrearForm Then
+            Dim frmCat As New frmCategorias
+            frmCat.Name = "frmCategorias"
+            frmCat.MdiParent = Me
+            frmCat.Show()
+        Else
+            For Each unForm As Form In Application.OpenForms
+                If unForm.Name = "frmCategorias" Then
+                    unForm.Activate()
+                    Exit For
+                End If
+            Next
+        End If
+
+    End Sub
 End Class
