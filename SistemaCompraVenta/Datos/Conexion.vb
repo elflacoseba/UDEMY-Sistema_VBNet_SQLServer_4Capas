@@ -11,9 +11,10 @@ Public Class Conexion
     Public Sub New()
         'Trabajeré con la autenticación de Windows.
         Me.Seguridad = True
+        'Data Source=OMEN-FLACO\SQLEXPRESS;Initial Catalog=dbCompraVenta;Integrated Security=True
 
-        Me.BaseDeDatos = "CompraVentaDB"
-        Me.Servidor = "PCFLACO\SQLEXPRESS"
+        Me.BaseDeDatos = "dbCompraVenta"
+        Me.Servidor = "OMEN-FLACO\SQLEXPRESS"
         Me.Usuario = "sa"
         Me.Clave = "flaco1022"
         Me.Cnn = New SqlConnection(CrearCadena())
@@ -75,7 +76,7 @@ Public Class Conexion
         cadena = "Server=" & Me.Servidor & "; Database=" & Me.BaseDeDatos & ";"
 
         If Me.Seguridad Then
-            cadena &= "Integrated Segurity=SSPI"
+            cadena &= "Integrated Security=SSPI"
         Else
             cadena &= cadena & "User Id=" & Me.Usuario & "; Password=" & Me.Clave
         End If
