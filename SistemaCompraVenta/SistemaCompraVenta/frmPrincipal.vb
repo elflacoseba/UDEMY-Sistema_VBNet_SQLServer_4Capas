@@ -33,4 +33,9 @@ Public Class frmPrincipal
         Next
     End Sub
 
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        If MessageBox.Show("¿Está seguro que desea salir?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+            Me.Close()
+        End If
+    End Sub
 End Class
