@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Categorias](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Nombre] [varchar](50) NOT NULL,
 	[Descripcion] [varchar](255) NULL,
 	[Estado] [bit] NOT NULL,
