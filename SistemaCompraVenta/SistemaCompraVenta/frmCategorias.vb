@@ -28,6 +28,7 @@
             dgvListadoCategorias.DataSource = oNegCat.Listar()
             lblTotalCategorias.Text = "Total de registros: " & dgvListadoCategorias.Rows.Count().ToString()
             Formato()
+            Me.Limpiar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -68,6 +69,7 @@
         txtNombre.Text = ""
         txtDescripcion.Text = ""
         btnInsertar.Visible = True
+        btnActualizar.Visible = False
         txtBuscar.Text = ""
     End Sub
 
@@ -85,7 +87,6 @@
 
                 If oCatNego.Insertar(oCat) Then
                     MsgBox("Se ha insertado correctamente la nueva Categoría.", vbOKOnly + vbInformation, "Registro correcto")
-                    Me.Limpiar()
                     Me.Listar()
                 Else
                     MsgBox("No se pudo insertar la Categoría.", vbOKOnly + vbCritical, "Registro incorrecto")
@@ -112,6 +113,46 @@
             epError.SetError(sender, "")
         Else
             epError.SetError(sender, "Ingrese el nombre de la Categoría. Este dato es obligatorio.")
+        End If
+    End Sub
+
+    Private Sub DgvListadoCategorias_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoCategorias.CellDoubleClick
+        txtID.Text = dgvListadoCategorias.SelectedCells.Item(1).Value
+        txtNombre.Text = dgvListadoCategorias.SelectedCells.Item(2).Value
+        txtDescripcion.Text = dgvListadoCategorias.SelectedCells.Item(3).Value
+        TabControlCategorias.SelectedIndex = 1
+        btnInsertar.Visible = False
+        btnActualizar.Visible = True
+    End Sub
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        If Me.ValidateChildren AndAlso Not String.IsNullOrEmpty(txtNombre.Text.Trim()) AndAlso Not String.IsNullOrEmpty(txtID.Text) Then
+            Dim oCat As Entidades.Categoria
+            Dim oCatNego As Negocios.Categorias
+
+            Try
+                oCat = New Entidades.Categoria
+                oCat.CategoriaID = txtID.Text
+                oCat.Nombre = txtNombre.Text
+                oCat.Descripcion = txtDescripcion.Text
+
+                oCatNego = New Negocios.Categorias
+
+                If oCatNego.Actualizar(oCat) Then
+                    MsgBox("Se ha actualizado correctamente la Categoría.", vbOKOnly + vbInformation, "Actualización correcta")
+                    Me.Listar()
+                    TabControlCategorias.SelectedIndex = 0
+                Else
+                    MsgBox("No se pudo actualizar la Categoría.", vbOKOnly + vbCritical, "Actualización incorrecta")
+                End If
+            Catch ex As Exception
+            Finally
+                oCat = Nothing
+                oCatNego = Nothing
+            End Try
+
+        Else
+            MsgBox("Debe ingresar los datos obligatorios (*)", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fanta ingresar datos")
         End If
     End Sub
 End Class
