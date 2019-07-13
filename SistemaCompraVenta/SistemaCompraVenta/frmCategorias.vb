@@ -184,28 +184,88 @@
     End Sub
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        If MsgBox("¿Está seguro que desea eliminar los registros seleccionados?", vbYesNo + vbQuestion, "Eliminar registros") = vbYes Then
+        If dgvListadoCategorias.Rows.Cast(Of DataGridViewRow).Any(Function(x) CBool(x.Cells("colSeleccionar").Value) = True) Then
+            If MsgBox("¿Está seguro que desea eliminar los registros seleccionados?", vbYesNo + vbQuestion + vbDefaultButton2, "Eliminar registros") = vbYes Then
 
-            Dim oCatNeg As Negocios.Categorias
-            Try
-                oCatNeg = New Negocios.Categorias
+                Dim oCatNeg As Negocios.Categorias
+                Try
+                    oCatNeg = New Negocios.Categorias
 
-                For Each unaFila As DataGridViewRow In dgvListadoCategorias.Rows
-                    Dim marcada As Boolean = CBool(unaFila.Cells("colSeleccionar").Value)
+                    For Each unaFila As DataGridViewRow In dgvListadoCategorias.Rows
+                        Dim marcada As Boolean = CBool(unaFila.Cells("colSeleccionar").Value)
 
-                    If marcada Then
-                        Dim OneKey As Integer = CInt(unaFila.Cells("Id").Value)
-                        oCatNeg.Eliminar(OneKey)
-                    End If
+                        If marcada Then
+                            Dim OneKey As Integer = CInt(unaFila.Cells("Id").Value)
+                            oCatNeg.Eliminar(OneKey)
+                        End If
 
-                Next
+                    Next
 
-                Me.Listar()
-            Catch ex As Exception
-                MsgBox(ex.Message, vbOKOnly + vbCritical, "Error")
-            Finally
-                oCatNeg = Nothing
-            End Try
+                    Me.Listar()
+                Catch ex As Exception
+                    MsgBox(ex.Message, vbOKOnly + vbCritical, "Error")
+                Finally
+                    oCatNeg = Nothing
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub BtnActivar_Click(sender As Object, e As EventArgs) Handles btnActivar.Click
+        If dgvListadoCategorias.Rows.Cast(Of DataGridViewRow).Any(Function(x) CBool(x.Cells("colSeleccionar").Value) = True) Then
+            If MsgBox("¿Está seguro que desea activar los registros seleccionados?", vbYesNo + vbQuestion + vbDefaultButton2, "Activar registros") = vbYes Then
+
+                Dim oCatNeg As Negocios.Categorias
+                Try
+                    oCatNeg = New Negocios.Categorias
+
+                    For Each unaFila As DataGridViewRow In dgvListadoCategorias.Rows
+                        Dim marcada As Boolean = CBool(unaFila.Cells("colSeleccionar").Value)
+
+                        If marcada Then
+                            Dim OneKey As Integer = CInt(unaFila.Cells("Id").Value)
+                            oCatNeg.Activar(OneKey)
+                        End If
+
+                    Next
+
+                    Me.Listar()
+                Catch ex As Exception
+                    MsgBox(ex.Message, vbOKOnly + vbCritical, "Error")
+                Finally
+                    oCatNeg = Nothing
+                End Try
+            End If
+        End If
+
+
+    End Sub
+
+    Private Sub BtnDesactivar_Click(sender As Object, e As EventArgs) Handles btnDesactivar.Click
+        If dgvListadoCategorias.Rows.Cast(Of DataGridViewRow).Any(Function(x) CBool(x.Cells("colSeleccionar").Value) = True) Then
+            If MsgBox("¿Está seguro que desea desactivar los registros seleccionados?", vbYesNo + vbQuestion + vbDefaultButton2, "Desactivar registros") = vbYes Then
+
+                Dim oCatNeg As Negocios.Categorias
+                Try
+                    oCatNeg = New Negocios.Categorias
+
+                    For Each unaFila As DataGridViewRow In dgvListadoCategorias.Rows
+                        Dim marcada As Boolean = CBool(unaFila.Cells("colSeleccionar").Value)
+
+                        If marcada Then
+                            Dim OneKey As Integer = CInt(unaFila.Cells("Id").Value)
+                            oCatNeg.Desactivar(OneKey)
+                        End If
+
+                    Next
+
+                    Me.Listar()
+                Catch ex As Exception
+                    MsgBox(ex.Message, vbOKOnly + vbCritical, "Error")
+                Finally
+                    oCatNeg = Nothing
+                End Try
+            End If
         End If
     End Sub
 End Class
