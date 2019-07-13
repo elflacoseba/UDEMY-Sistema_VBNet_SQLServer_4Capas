@@ -7,8 +7,9 @@
     Private Sub Formato()
         With dgvListadoCategorias
             .Columns(0).Visible = False
-            .Columns(0).Width = 50
-            .Columns(1).Width = 50
+            .Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+            .Columns(0).Width = 70
+            .Columns(1).Width = 60
             .Columns(1).HeaderText = "ID"
             .Columns(1).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight
             .Columns(1).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight

@@ -45,7 +45,7 @@ Partial Class frmCategorias
         Me.TabControlCategorias.Location = New System.Drawing.Point(0, 0)
         Me.TabControlCategorias.Name = "TabControlCategorias"
         Me.TabControlCategorias.SelectedIndex = 0
-        Me.TabControlCategorias.Size = New System.Drawing.Size(800, 450)
+        Me.TabControlCategorias.Size = New System.Drawing.Size(907, 503)
         Me.TabControlCategorias.TabIndex = 0
         '
         'TabPage1
@@ -55,7 +55,7 @@ Partial Class frmCategorias
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(792, 421)
+        Me.TabPage1.Size = New System.Drawing.Size(899, 474)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -66,7 +66,7 @@ Partial Class frmCategorias
         Me.pnlGrilla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlGrilla.Location = New System.Drawing.Point(3, 3)
         Me.pnlGrilla.Name = "pnlGrilla"
-        Me.pnlGrilla.Size = New System.Drawing.Size(786, 385)
+        Me.pnlGrilla.Size = New System.Drawing.Size(893, 438)
         Me.pnlGrilla.TabIndex = 1
         '
         'dgvListadoCategorias
@@ -82,7 +82,7 @@ Partial Class frmCategorias
         Me.dgvListadoCategorias.ReadOnly = True
         Me.dgvListadoCategorias.RowHeadersWidth = 51
         Me.dgvListadoCategorias.RowTemplate.Height = 24
-        Me.dgvListadoCategorias.Size = New System.Drawing.Size(786, 385)
+        Me.dgvListadoCategorias.Size = New System.Drawing.Size(893, 438)
         Me.dgvListadoCategorias.TabIndex = 1
         '
         'colSeleccionar
@@ -99,9 +99,9 @@ Partial Class frmCategorias
         Me.pnlPie.BackColor = System.Drawing.Color.Transparent
         Me.pnlPie.Controls.Add(Me.lblTotalCategorias)
         Me.pnlPie.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPie.Location = New System.Drawing.Point(3, 388)
+        Me.pnlPie.Location = New System.Drawing.Point(3, 441)
         Me.pnlPie.Name = "pnlPie"
-        Me.pnlPie.Size = New System.Drawing.Size(786, 30)
+        Me.pnlPie.Size = New System.Drawing.Size(893, 30)
         Me.pnlPie.TabIndex = 0
         '
         'lblTotalCategorias
@@ -127,7 +127,7 @@ Partial Class frmCategorias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(907, 503)
         Me.Controls.Add(Me.TabControlCategorias)
         Me.Name = "frmCategorias"
         Me.Text = "Categorías"
