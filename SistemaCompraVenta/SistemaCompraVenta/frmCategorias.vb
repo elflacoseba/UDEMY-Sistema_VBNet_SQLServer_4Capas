@@ -50,16 +50,68 @@
     End Sub
 
     Private Sub BtnBuscarCategoria_Click(sender As Object, e As EventArgs) Handles btnBuscarCategoria.Click
-        If String.IsNullOrEmpty(txtBuscarCategoria.Text) Then
+        If String.IsNullOrEmpty(txtBuscar.Text) Then
             Me.Listar()
         Else
-            Me.Buscar(txtBuscarCategoria.Text)
+            Me.Buscar(txtBuscar.Text)
         End If
     End Sub
 
-    Private Sub TxtBuscarCategoria_KeyDown(sender As Object, e As KeyEventArgs) Handles txtBuscarCategoria.KeyDown
+    Private Sub TxtBuscarCategoria_KeyDown(sender As Object, e As KeyEventArgs) Handles txtBuscar.KeyDown
         If e.KeyCode = Keys.Enter Then
             Me.btnBuscarCategoria.PerformClick()
+        End If
+    End Sub
+
+    Private Sub Limpiar()
+        txtID.Text = ""
+        txtNombre.Text = ""
+        txtDescripcion.Text = ""
+        btnInsertar.Visible = True
+        txtBuscar.Text = ""
+    End Sub
+
+    Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
+        If Me.ValidateChildren AndAlso Not String.IsNullOrEmpty(txtNombre.Text.Trim()) Then
+            Dim oCat As Entidades.Categoria
+            Dim oCatNego As Negocios.Categorias
+
+            Try
+                oCat = New Entidades.Categoria
+                oCat.Nombre = txtNombre.Text
+                oCat.Descripcion = txtDescripcion.Text
+
+                oCatNego = New Negocios.Categorias
+
+                If oCatNego.Insertar(oCat) Then
+                    MsgBox("Se ha insertado correctamente la nueva Categoría.", vbOKOnly + vbInformation, "Registro correcto")
+                    Me.Limpiar()
+                    Me.Listar()
+                Else
+                    MsgBox("No se pudo insertar la Categoría.", vbOKOnly + vbCritical, "Registro incorrecto")
+                End If
+            Catch ex As Exception
+            Finally
+                oCat = Nothing
+                oCatNego = Nothing
+            End Try
+
+        Else
+            MsgBox("Debe ingresar los datos obligatorios (*)", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fanta ingresar datos")
+        End If
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Limpiar()
+        TabControlCategorias.SelectedIndex = 0
+        btnBuscarCategoria.PerformClick()
+    End Sub
+
+    Private Sub TxtNombre_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtNombre.Validating
+        If DirectCast(sender, TextBox).Text.Trim.Length > 0 Then
+            epError.SetError(sender, "")
+        Else
+            epError.SetError(sender, "Ingrese el nombre de la Categoría. Este dato es obligatorio.")
         End If
     End Sub
 End Class
