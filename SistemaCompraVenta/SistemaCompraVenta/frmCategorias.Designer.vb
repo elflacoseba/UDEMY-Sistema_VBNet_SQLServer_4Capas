@@ -27,13 +27,18 @@ Partial Class frmCategorias
         Me.pnlGrilla = New System.Windows.Forms.Panel()
         Me.dgvListadoCategorias = New System.Windows.Forms.DataGridView()
         Me.colSeleccionar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.pnlBuscador = New System.Windows.Forms.Panel()
         Me.pnlPie = New System.Windows.Forms.Panel()
         Me.lblTotalCategorias = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.txtBuscarCategoria = New System.Windows.Forms.TextBox()
+        Me.btnBuscarCategoria = New System.Windows.Forms.Button()
+        Me.lblBuscarCategoria = New System.Windows.Forms.Label()
         Me.TabControlCategorias.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.pnlGrilla.SuspendLayout()
         CType(Me.dgvListadoCategorias, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlBuscador.SuspendLayout()
         Me.pnlPie.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,6 +56,7 @@ Partial Class frmCategorias
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.pnlGrilla)
+        Me.TabPage1.Controls.Add(Me.pnlBuscador)
         Me.TabPage1.Controls.Add(Me.pnlPie)
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
@@ -64,9 +70,9 @@ Partial Class frmCategorias
         '
         Me.pnlGrilla.Controls.Add(Me.dgvListadoCategorias)
         Me.pnlGrilla.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlGrilla.Location = New System.Drawing.Point(3, 3)
+        Me.pnlGrilla.Location = New System.Drawing.Point(3, 71)
         Me.pnlGrilla.Name = "pnlGrilla"
-        Me.pnlGrilla.Size = New System.Drawing.Size(893, 438)
+        Me.pnlGrilla.Size = New System.Drawing.Size(893, 370)
         Me.pnlGrilla.TabIndex = 1
         '
         'dgvListadoCategorias
@@ -82,8 +88,8 @@ Partial Class frmCategorias
         Me.dgvListadoCategorias.ReadOnly = True
         Me.dgvListadoCategorias.RowHeadersWidth = 51
         Me.dgvListadoCategorias.RowTemplate.Height = 24
-        Me.dgvListadoCategorias.Size = New System.Drawing.Size(893, 438)
-        Me.dgvListadoCategorias.TabIndex = 1
+        Me.dgvListadoCategorias.Size = New System.Drawing.Size(893, 370)
+        Me.dgvListadoCategorias.TabIndex = 2
         '
         'colSeleccionar
         '
@@ -93,6 +99,17 @@ Partial Class frmCategorias
         Me.colSeleccionar.Name = "colSeleccionar"
         Me.colSeleccionar.ReadOnly = True
         Me.colSeleccionar.Width = 125
+        '
+        'pnlBuscador
+        '
+        Me.pnlBuscador.Controls.Add(Me.lblBuscarCategoria)
+        Me.pnlBuscador.Controls.Add(Me.btnBuscarCategoria)
+        Me.pnlBuscador.Controls.Add(Me.txtBuscarCategoria)
+        Me.pnlBuscador.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlBuscador.Location = New System.Drawing.Point(3, 3)
+        Me.pnlBuscador.Name = "pnlBuscador"
+        Me.pnlBuscador.Size = New System.Drawing.Size(893, 68)
+        Me.pnlBuscador.TabIndex = 2
         '
         'pnlPie
         '
@@ -118,10 +135,39 @@ Partial Class frmCategorias
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(792, 421)
+        Me.TabPage2.Size = New System.Drawing.Size(899, 474)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Mantenimiento"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'txtBuscarCategoria
+        '
+        Me.txtBuscarCategoria.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscarCategoria.Location = New System.Drawing.Point(40, 30)
+        Me.txtBuscarCategoria.MaxLength = 50
+        Me.txtBuscarCategoria.Name = "txtBuscarCategoria"
+        Me.txtBuscarCategoria.Size = New System.Drawing.Size(767, 22)
+        Me.txtBuscarCategoria.TabIndex = 0
+        '
+        'btnBuscarCategoria
+        '
+        Me.btnBuscarCategoria.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnBuscarCategoria.Location = New System.Drawing.Point(813, 29)
+        Me.btnBuscarCategoria.Name = "btnBuscarCategoria"
+        Me.btnBuscarCategoria.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscarCategoria.TabIndex = 1
+        Me.btnBuscarCategoria.Text = "Buscar"
+        Me.btnBuscarCategoria.UseVisualStyleBackColor = True
+        '
+        'lblBuscarCategoria
+        '
+        Me.lblBuscarCategoria.AutoSize = True
+        Me.lblBuscarCategoria.Location = New System.Drawing.Point(40, 10)
+        Me.lblBuscarCategoria.Name = "lblBuscarCategoria"
+        Me.lblBuscarCategoria.Size = New System.Drawing.Size(117, 17)
+        Me.lblBuscarCategoria.TabIndex = 2
+        Me.lblBuscarCategoria.Text = "Buscar Categoría"
         '
         'frmCategorias
         '
@@ -135,6 +181,8 @@ Partial Class frmCategorias
         Me.TabPage1.ResumeLayout(False)
         Me.pnlGrilla.ResumeLayout(False)
         CType(Me.dgvListadoCategorias, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlBuscador.ResumeLayout(False)
+        Me.pnlBuscador.PerformLayout()
         Me.pnlPie.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -144,8 +192,12 @@ Partial Class frmCategorias
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents pnlGrilla As Panel
-    Friend WithEvents dgvListadoCategorias As DataGridView
-    Friend WithEvents colSeleccionar As DataGridViewCheckBoxColumn
     Friend WithEvents pnlPie As Panel
     Friend WithEvents lblTotalCategorias As Label
+    Friend WithEvents pnlBuscador As Panel
+    Friend WithEvents dgvListadoCategorias As DataGridView
+    Friend WithEvents colSeleccionar As DataGridViewCheckBoxColumn
+    Friend WithEvents lblBuscarCategoria As Label
+    Friend WithEvents btnBuscarCategoria As Button
+    Friend WithEvents txtBuscarCategoria As TextBox
 End Class

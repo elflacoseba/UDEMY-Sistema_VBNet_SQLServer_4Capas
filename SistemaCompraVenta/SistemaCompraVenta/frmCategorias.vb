@@ -34,4 +34,32 @@
             oNegCat = Nothing
         End Try
     End Sub
+
+    Private Sub Buscar(Valor As String)
+        Dim oNegCat As Negocios.Categorias
+        Try
+            oNegCat = New Negocios.Categorias
+            dgvListadoCategorias.DataSource = oNegCat.Buscar(Valor)
+            lblTotalCategorias.Text = "Total de registros: " & dgvListadoCategorias.Rows.Count().ToString()
+            Formato()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            oNegCat = Nothing
+        End Try
+    End Sub
+
+    Private Sub BtnBuscarCategoria_Click(sender As Object, e As EventArgs) Handles btnBuscarCategoria.Click
+        If String.IsNullOrEmpty(txtBuscarCategoria.Text) Then
+            Me.Listar()
+        Else
+            Me.Buscar(txtBuscarCategoria.Text)
+        End If
+    End Sub
+
+    Private Sub TxtBuscarCategoria_KeyDown(sender As Object, e As KeyEventArgs) Handles txtBuscarCategoria.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Me.btnBuscarCategoria.PerformClick()
+        End If
+    End Sub
 End Class
