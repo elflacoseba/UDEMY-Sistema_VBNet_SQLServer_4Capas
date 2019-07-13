@@ -5,8 +5,13 @@
     End Sub
 
     Private Sub Formato()
+        dgvListadoCategorias.Columns(0).Visible = False
+        btnEliminar.Visible = False
+        btnActivar.Visible = False
+        btnDesactivar.Visible = False
+        chkSeleccionar.CheckState = False
+
         With dgvListadoCategorias
-            .Columns(0).Visible = False
             .Columns(0).HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
             .Columns(0).Width = 70
             .Columns(1).Width = 60
@@ -153,6 +158,54 @@
 
         Else
             MsgBox("Debe ingresar los datos obligatorios (*)", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fanta ingresar datos")
+        End If
+    End Sub
+
+    Private Sub ChkSeleccionar_CheckedChanged(sender As Object, e As EventArgs) Handles chkSeleccionar.CheckedChanged
+        If chkSeleccionar.Checked Then
+            dgvListadoCategorias.Columns(0).Visible = True
+            btnEliminar.Visible = True
+            btnActivar.Visible = True
+            btnDesactivar.Visible = True
+        Else
+            dgvListadoCategorias.Columns(0).Visible = False
+            btnEliminar.Visible = False
+            btnActivar.Visible = False
+            btnDesactivar.Visible = False
+        End If
+
+    End Sub
+
+    Private Sub DgvListadoCategorias_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListadoCategorias.CellContentClick
+        If e.ColumnIndex = dgvListadoCategorias.Columns.Item("colSeleccionar").Index Then
+            Dim chkSel As DataGridViewCheckBoxCell = dgvListadoCategorias.Rows(e.RowIndex).Cells("colSeleccionar")
+            chkSel.Value = Not chkSel.Value
+        End If
+    End Sub
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        If MsgBox("¿Está seguro que desea eliminar los registros seleccionados?", vbYesNo + vbQuestion, "Eliminar registros") = vbYes Then
+
+            Dim oCatNeg As Negocios.Categorias
+            Try
+                oCatNeg = New Negocios.Categorias
+
+                For Each unaFila As DataGridViewRow In dgvListadoCategorias.Rows
+                    Dim marcada As Boolean = CBool(unaFila.Cells("colSeleccionar").Value)
+
+                    If marcada Then
+                        Dim OneKey As Integer = CInt(unaFila.Cells("Id").Value)
+                        oCatNeg.Eliminar(OneKey)
+                    End If
+
+                Next
+
+                Me.Listar()
+            Catch ex As Exception
+                MsgBox(ex.Message, vbOKOnly + vbCritical, "Error")
+            Finally
+                oCatNeg = Nothing
+            End Try
         End If
     End Sub
 End Class

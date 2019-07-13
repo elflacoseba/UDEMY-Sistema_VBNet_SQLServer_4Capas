@@ -45,6 +45,10 @@ Partial Class frmCategorias
         Me.lblCategoriaNombre = New System.Windows.Forms.Label()
         Me.epError = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.btnActualizar = New System.Windows.Forms.Button()
+        Me.chkSeleccionar = New System.Windows.Forms.CheckBox()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.btnActivar = New System.Windows.Forms.Button()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
         Me.TabControlCategorias.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.pnlGrilla.SuspendLayout()
@@ -86,7 +90,7 @@ Partial Class frmCategorias
         Me.pnlGrilla.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlGrilla.Location = New System.Drawing.Point(3, 71)
         Me.pnlGrilla.Name = "pnlGrilla"
-        Me.pnlGrilla.Size = New System.Drawing.Size(893, 370)
+        Me.pnlGrilla.Size = New System.Drawing.Size(893, 357)
         Me.pnlGrilla.TabIndex = 1
         '
         'dgvListadoCategorias
@@ -103,7 +107,7 @@ Partial Class frmCategorias
         Me.dgvListadoCategorias.RowHeadersWidth = 51
         Me.dgvListadoCategorias.RowTemplate.Height = 24
         Me.dgvListadoCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvListadoCategorias.Size = New System.Drawing.Size(893, 370)
+        Me.dgvListadoCategorias.Size = New System.Drawing.Size(893, 357)
         Me.dgvListadoCategorias.TabIndex = 2
         '
         'colSeleccionar
@@ -158,16 +162,21 @@ Partial Class frmCategorias
         'pnlPie
         '
         Me.pnlPie.BackColor = System.Drawing.Color.Transparent
+        Me.pnlPie.Controls.Add(Me.btnDesactivar)
+        Me.pnlPie.Controls.Add(Me.btnActivar)
+        Me.pnlPie.Controls.Add(Me.btnEliminar)
+        Me.pnlPie.Controls.Add(Me.chkSeleccionar)
         Me.pnlPie.Controls.Add(Me.lblTotalCategorias)
         Me.pnlPie.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPie.Location = New System.Drawing.Point(3, 441)
+        Me.pnlPie.Location = New System.Drawing.Point(3, 428)
         Me.pnlPie.Name = "pnlPie"
-        Me.pnlPie.Size = New System.Drawing.Size(893, 30)
+        Me.pnlPie.Size = New System.Drawing.Size(893, 43)
         Me.pnlPie.TabIndex = 0
         '
         'lblTotalCategorias
         '
-        Me.lblTotalCategorias.Location = New System.Drawing.Point(550, 5)
+        Me.lblTotalCategorias.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lblTotalCategorias.Location = New System.Drawing.Point(657, 14)
         Me.lblTotalCategorias.Name = "lblTotalCategorias"
         Me.lblTotalCategorias.Size = New System.Drawing.Size(231, 17)
         Me.lblTotalCategorias.TabIndex = 0
@@ -280,6 +289,43 @@ Partial Class frmCategorias
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = True
         '
+        'chkSeleccionar
+        '
+        Me.chkSeleccionar.AutoSize = True
+        Me.chkSeleccionar.Location = New System.Drawing.Point(14, 10)
+        Me.chkSeleccionar.Name = "chkSeleccionar"
+        Me.chkSeleccionar.Size = New System.Drawing.Size(104, 21)
+        Me.chkSeleccionar.TabIndex = 1
+        Me.chkSeleccionar.Text = "Seleccionar"
+        Me.chkSeleccionar.UseVisualStyleBackColor = True
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Location = New System.Drawing.Point(189, 8)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(100, 23)
+        Me.btnEliminar.TabIndex = 2
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'btnActivar
+        '
+        Me.btnActivar.Location = New System.Drawing.Point(334, 8)
+        Me.btnActivar.Name = "btnActivar"
+        Me.btnActivar.Size = New System.Drawing.Size(100, 23)
+        Me.btnActivar.TabIndex = 3
+        Me.btnActivar.Text = "Activar"
+        Me.btnActivar.UseVisualStyleBackColor = True
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.Location = New System.Drawing.Point(479, 8)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(100, 23)
+        Me.btnDesactivar.TabIndex = 4
+        Me.btnDesactivar.Text = "Desactivar"
+        Me.btnDesactivar.UseVisualStyleBackColor = True
+        '
         'frmCategorias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -295,6 +341,7 @@ Partial Class frmCategorias
         Me.pnlBuscador.ResumeLayout(False)
         Me.pnlBuscador.PerformLayout()
         Me.pnlPie.ResumeLayout(False)
+        Me.pnlPie.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.gbxDatosCategoria.ResumeLayout(False)
         Me.gbxDatosCategoria.PerformLayout()
@@ -325,4 +372,8 @@ Partial Class frmCategorias
     Friend WithEvents lblCategoriaNombre As Label
     Friend WithEvents epError As ErrorProvider
     Friend WithEvents btnActualizar As Button
+    Friend WithEvents btnDesactivar As Button
+    Friend WithEvents btnActivar As Button
+    Friend WithEvents btnEliminar As Button
+    Friend WithEvents chkSeleccionar As CheckBox
 End Class
