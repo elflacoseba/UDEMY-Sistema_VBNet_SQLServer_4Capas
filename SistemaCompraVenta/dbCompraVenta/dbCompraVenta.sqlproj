@@ -83,5 +83,6 @@
     <Build Include="Categorias\Categorias_Activar.sql" />
     <Build Include="Articulos\Articulos_Listar.sql" />
     <Build Include="Articulos\Articulos_Buscar.sql" />
+    <Build Include="Articulos\Articulos_Insertar.sql" />
   </ItemGroup>
 </Project>
