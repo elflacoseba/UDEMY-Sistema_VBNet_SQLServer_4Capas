@@ -87,5 +87,6 @@
     <Build Include="Articulos\Articulos_Actualizar.sql" />
     <Build Include="Articulos\Articulos_Eliminar.sql" />
     <Build Include="Articulos\Articulos_Desactivar.sql" />
+    <Build Include="Articulos\Articulos_Activar.sql" />
   </ItemGroup>
 </Project>
