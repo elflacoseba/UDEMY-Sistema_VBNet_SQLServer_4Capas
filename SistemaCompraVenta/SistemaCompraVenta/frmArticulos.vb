@@ -1,4 +1,9 @@
 ﻿Public Class frmArticulos
+
+    Private RutaOrigen As String
+    Private RutaDestino As String
+    Private Directorio As String = Application.StartupPath
+
     Private Sub FrmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Listar()
         CargarComboCategorias()
@@ -105,5 +110,13 @@
         Finally
             oNegCat = Nothing
         End Try
+    End Sub
+
+    Private Sub BtnCargarImagen_Click(sender As Object, e As EventArgs) Handles btnCargarImagen.Click
+        If OpenFileDialogIMG.ShowDialog() = DialogResult.OK Then
+            picImagen.Image = Image.FromFile(OpenFileDialogIMG.FileName)
+            RutaOrigen = OpenFileDialogIMG.FileName
+            txtImagen.Text = OpenFileDialogIMG.FileName.Substring(OpenFileDialogIMG.FileName.LastIndexOf("\") + 1)
+        End If
     End Sub
 End Class

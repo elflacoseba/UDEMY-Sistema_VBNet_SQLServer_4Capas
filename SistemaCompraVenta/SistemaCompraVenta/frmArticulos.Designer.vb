@@ -51,6 +51,11 @@ Partial Class frmArticulos
         Me.TabControlCategorias = New System.Windows.Forms.TabControl()
         Me.lblCategoria = New System.Windows.Forms.Label()
         Me.cmbCategorias = New System.Windows.Forms.ComboBox()
+        Me.txtImagen = New System.Windows.Forms.TextBox()
+        Me.lblImagen = New System.Windows.Forms.Label()
+        Me.btnCargarImagen = New System.Windows.Forms.Button()
+        Me.picImagen = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialogIMG = New System.Windows.Forms.OpenFileDialog()
         CType(Me.epError, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxDatosArticulo.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -60,6 +65,7 @@ Partial Class frmArticulos
         Me.pnlGrilla.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabControlCategorias.SuspendLayout()
+        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'epError
@@ -88,7 +94,7 @@ Partial Class frmArticulos
         'txtID
         '
         Me.txtID.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtID.Location = New System.Drawing.Point(535, 0)
+        Me.txtID.Location = New System.Drawing.Point(884, 0)
         Me.txtID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(76, 20)
@@ -140,6 +146,10 @@ Partial Class frmArticulos
         '
         Me.gbxDatosArticulo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbxDatosArticulo.Controls.Add(Me.picImagen)
+        Me.gbxDatosArticulo.Controls.Add(Me.btnCargarImagen)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtImagen)
+        Me.gbxDatosArticulo.Controls.Add(Me.lblImagen)
         Me.gbxDatosArticulo.Controls.Add(Me.cmbCategorias)
         Me.gbxDatosArticulo.Controls.Add(Me.lblCategoria)
         Me.gbxDatosArticulo.Controls.Add(Me.txtDescripcion)
@@ -151,7 +161,7 @@ Partial Class frmArticulos
         Me.gbxDatosArticulo.Margin = New System.Windows.Forms.Padding(2)
         Me.gbxDatosArticulo.Name = "gbxDatosArticulo"
         Me.gbxDatosArticulo.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbxDatosArticulo.Size = New System.Drawing.Size(614, 210)
+        Me.gbxDatosArticulo.Size = New System.Drawing.Size(963, 210)
         Me.gbxDatosArticulo.TabIndex = 0
         Me.gbxDatosArticulo.TabStop = False
         Me.gbxDatosArticulo.Text = "Datos del Artículo"
@@ -374,6 +384,51 @@ Partial Class frmArticulos
         Me.cmbCategorias.Size = New System.Drawing.Size(266, 21)
         Me.cmbCategorias.TabIndex = 4
         '
+        'txtImagen
+        '
+        Me.txtImagen.Location = New System.Drawing.Point(523, 39)
+        Me.txtImagen.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtImagen.MaxLength = 50
+        Me.txtImagen.Name = "txtImagen"
+        Me.txtImagen.ReadOnly = True
+        Me.txtImagen.Size = New System.Drawing.Size(266, 20)
+        Me.txtImagen.TabIndex = 6
+        '
+        'lblImagen
+        '
+        Me.lblImagen.Location = New System.Drawing.Point(446, 39)
+        Me.lblImagen.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblImagen.Name = "lblImagen"
+        Me.lblImagen.Size = New System.Drawing.Size(73, 18)
+        Me.lblImagen.TabIndex = 5
+        Me.lblImagen.Text = "Imagen:"
+        Me.lblImagen.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnCargarImagen
+        '
+        Me.btnCargarImagen.Location = New System.Drawing.Point(793, 39)
+        Me.btnCargarImagen.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnCargarImagen.Name = "btnCargarImagen"
+        Me.btnCargarImagen.Size = New System.Drawing.Size(75, 20)
+        Me.btnCargarImagen.TabIndex = 7
+        Me.btnCargarImagen.Text = "Cargar"
+        Me.btnCargarImagen.UseVisualStyleBackColor = True
+        '
+        'picImagen
+        '
+        Me.picImagen.Location = New System.Drawing.Point(523, 77)
+        Me.picImagen.Name = "picImagen"
+        Me.picImagen.Size = New System.Drawing.Size(266, 128)
+        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picImagen.TabIndex = 8
+        Me.picImagen.TabStop = False
+        '
+        'OpenFileDialogIMG
+        '
+        Me.OpenFileDialogIMG.FileName = "OpenFileDialog1"
+        Me.OpenFileDialogIMG.Filter = "Imágenes (*.jpg, *jpeg, *.png) | *.jpg; *.jpeg; *.png"
+        Me.OpenFileDialogIMG.Title = "Seleccionar imagen"
+        '
         'frmArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -395,6 +450,7 @@ Partial Class frmArticulos
         Me.pnlGrilla.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabControlCategorias.ResumeLayout(False)
+        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -427,4 +483,9 @@ Partial Class frmArticulos
     Friend WithEvents lblCategoriaNombre As Label
     Friend WithEvents cmbCategorias As ComboBox
     Friend WithEvents lblCategoria As Label
+    Friend WithEvents picImagen As PictureBox
+    Friend WithEvents btnCargarImagen As Button
+    Friend WithEvents txtImagen As TextBox
+    Friend WithEvents lblImagen As Label
+    Friend WithEvents OpenFileDialogIMG As OpenFileDialog
 End Class
