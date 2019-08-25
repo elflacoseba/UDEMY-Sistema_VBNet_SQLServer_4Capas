@@ -30,7 +30,7 @@
         Dim oNegCat As Negocios.Categorias
         Try
             oNegCat = New Negocios.Categorias
-            dgvListadoCategorias.DataSource = oNegCat.Listar()
+            dgvListadoCategorias.DataSource = oNegCat.Listar(Entidades.Categoria.EstadoListarCategorias.Todas)
             lblTotalCategorias.Text = "Total de registros: " & dgvListadoCategorias.Rows.Count().ToString()
             Formato()
             Me.Limpiar()
