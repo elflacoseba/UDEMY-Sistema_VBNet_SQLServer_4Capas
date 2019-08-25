@@ -63,4 +63,28 @@ Public Class frmPrincipal
         End If
 
     End Sub
+
+    Private Sub ArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArtículosToolStripMenuItem.Click
+        Dim CrearForm As Boolean = True
+        For Each unForm As Form In Application.OpenForms
+            If unForm.Name = "frmArticulos" Then
+                CrearForm = False
+                Exit For
+            End If
+        Next
+
+        If CrearForm Then
+            Dim frmArt As New frmArticulos
+            frmArt.Name = "frmArticulos"
+            frmArt.MdiParent = Me
+            frmArt.Show()
+        Else
+            For Each unForm As Form In Application.OpenForms
+                If unForm.Name = "frmArticulos" Then
+                    unForm.Activate()
+                    Exit For
+                End If
+            Next
+        End If
+    End Sub
 End Class
