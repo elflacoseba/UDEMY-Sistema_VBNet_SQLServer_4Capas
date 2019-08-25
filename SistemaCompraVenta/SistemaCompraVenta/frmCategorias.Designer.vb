@@ -33,8 +33,13 @@ Partial Class frmCategorias
         Me.btnBuscarCategoria = New System.Windows.Forms.Button()
         Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.pnlPie = New System.Windows.Forms.Panel()
+        Me.btnDesactivar = New System.Windows.Forms.Button()
+        Me.btnActivar = New System.Windows.Forms.Button()
+        Me.btnEliminar = New System.Windows.Forms.Button()
+        Me.chkSeleccionar = New System.Windows.Forms.CheckBox()
         Me.lblTotalCategorias = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnInsertar = New System.Windows.Forms.Button()
         Me.gbxDatosCategoria = New System.Windows.Forms.GroupBox()
@@ -44,11 +49,8 @@ Partial Class frmCategorias
         Me.lblDescripcion = New System.Windows.Forms.Label()
         Me.lblCategoriaNombre = New System.Windows.Forms.Label()
         Me.epError = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.btnActualizar = New System.Windows.Forms.Button()
-        Me.chkSeleccionar = New System.Windows.Forms.CheckBox()
-        Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnActivar = New System.Windows.Forms.Button()
-        Me.btnDesactivar = New System.Windows.Forms.Button()
+        Me.lblCategoria = New System.Windows.Forms.Label()
+        Me.cmbCategoria = New System.Windows.Forms.ComboBox()
         Me.TabControlCategorias.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.pnlGrilla.SuspendLayout()
@@ -66,9 +68,10 @@ Partial Class frmCategorias
         Me.TabControlCategorias.Controls.Add(Me.TabPage2)
         Me.TabControlCategorias.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControlCategorias.Location = New System.Drawing.Point(0, 0)
+        Me.TabControlCategorias.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabControlCategorias.Name = "TabControlCategorias"
         Me.TabControlCategorias.SelectedIndex = 0
-        Me.TabControlCategorias.Size = New System.Drawing.Size(907, 503)
+        Me.TabControlCategorias.Size = New System.Drawing.Size(680, 409)
         Me.TabControlCategorias.TabIndex = 0
         '
         'TabPage1
@@ -76,10 +79,11 @@ Partial Class frmCategorias
         Me.TabPage1.Controls.Add(Me.pnlGrilla)
         Me.TabPage1.Controls.Add(Me.pnlBuscador)
         Me.TabPage1.Controls.Add(Me.pnlPie)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(899, 474)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage1.Size = New System.Drawing.Size(672, 383)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -88,9 +92,10 @@ Partial Class frmCategorias
         '
         Me.pnlGrilla.Controls.Add(Me.dgvListadoCategorias)
         Me.pnlGrilla.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlGrilla.Location = New System.Drawing.Point(3, 71)
+        Me.pnlGrilla.Location = New System.Drawing.Point(2, 57)
+        Me.pnlGrilla.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnlGrilla.Name = "pnlGrilla"
-        Me.pnlGrilla.Size = New System.Drawing.Size(893, 357)
+        Me.pnlGrilla.Size = New System.Drawing.Size(668, 289)
         Me.pnlGrilla.TabIndex = 1
         '
         'dgvListadoCategorias
@@ -102,12 +107,13 @@ Partial Class frmCategorias
         Me.dgvListadoCategorias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSeleccionar})
         Me.dgvListadoCategorias.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListadoCategorias.Location = New System.Drawing.Point(0, 0)
+        Me.dgvListadoCategorias.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dgvListadoCategorias.Name = "dgvListadoCategorias"
         Me.dgvListadoCategorias.ReadOnly = True
         Me.dgvListadoCategorias.RowHeadersWidth = 51
         Me.dgvListadoCategorias.RowTemplate.Height = 24
         Me.dgvListadoCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvListadoCategorias.Size = New System.Drawing.Size(893, 357)
+        Me.dgvListadoCategorias.Size = New System.Drawing.Size(668, 289)
         Me.dgvListadoCategorias.TabIndex = 2
         '
         'colSeleccionar
@@ -125,26 +131,29 @@ Partial Class frmCategorias
         Me.pnlBuscador.Controls.Add(Me.btnBuscarCategoria)
         Me.pnlBuscador.Controls.Add(Me.txtBuscar)
         Me.pnlBuscador.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlBuscador.Location = New System.Drawing.Point(3, 3)
+        Me.pnlBuscador.Location = New System.Drawing.Point(2, 2)
+        Me.pnlBuscador.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnlBuscador.Name = "pnlBuscador"
-        Me.pnlBuscador.Size = New System.Drawing.Size(893, 68)
+        Me.pnlBuscador.Size = New System.Drawing.Size(668, 55)
         Me.pnlBuscador.TabIndex = 2
         '
         'lblBuscarCategoria
         '
         Me.lblBuscarCategoria.AutoSize = True
-        Me.lblBuscarCategoria.Location = New System.Drawing.Point(40, 10)
+        Me.lblBuscarCategoria.Location = New System.Drawing.Point(30, 8)
+        Me.lblBuscarCategoria.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblBuscarCategoria.Name = "lblBuscarCategoria"
-        Me.lblBuscarCategoria.Size = New System.Drawing.Size(117, 17)
+        Me.lblBuscarCategoria.Size = New System.Drawing.Size(90, 13)
         Me.lblBuscarCategoria.TabIndex = 2
         Me.lblBuscarCategoria.Text = "Buscar Categoría"
         '
         'btnBuscarCategoria
         '
         Me.btnBuscarCategoria.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnBuscarCategoria.Location = New System.Drawing.Point(788, 30)
+        Me.btnBuscarCategoria.Location = New System.Drawing.Point(589, 24)
+        Me.btnBuscarCategoria.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnBuscarCategoria.Name = "btnBuscarCategoria"
-        Me.btnBuscarCategoria.Size = New System.Drawing.Size(100, 23)
+        Me.btnBuscarCategoria.Size = New System.Drawing.Size(75, 19)
         Me.btnBuscarCategoria.TabIndex = 1
         Me.btnBuscarCategoria.Text = "Buscar"
         Me.btnBuscarCategoria.UseVisualStyleBackColor = True
@@ -153,10 +162,11 @@ Partial Class frmCategorias
         '
         Me.txtBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBuscar.Location = New System.Drawing.Point(40, 30)
+        Me.txtBuscar.Location = New System.Drawing.Point(30, 24)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtBuscar.MaxLength = 50
         Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.Size = New System.Drawing.Size(741, 22)
+        Me.txtBuscar.Size = New System.Drawing.Size(555, 20)
         Me.txtBuscar.TabIndex = 0
         '
         'pnlPie
@@ -168,17 +178,60 @@ Partial Class frmCategorias
         Me.pnlPie.Controls.Add(Me.chkSeleccionar)
         Me.pnlPie.Controls.Add(Me.lblTotalCategorias)
         Me.pnlPie.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.pnlPie.Location = New System.Drawing.Point(3, 428)
+        Me.pnlPie.Location = New System.Drawing.Point(2, 346)
+        Me.pnlPie.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.pnlPie.Name = "pnlPie"
-        Me.pnlPie.Size = New System.Drawing.Size(893, 43)
+        Me.pnlPie.Size = New System.Drawing.Size(668, 35)
         Me.pnlPie.TabIndex = 0
+        '
+        'btnDesactivar
+        '
+        Me.btnDesactivar.Location = New System.Drawing.Point(359, 6)
+        Me.btnDesactivar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnDesactivar.Name = "btnDesactivar"
+        Me.btnDesactivar.Size = New System.Drawing.Size(75, 19)
+        Me.btnDesactivar.TabIndex = 4
+        Me.btnDesactivar.Text = "Desactivar"
+        Me.btnDesactivar.UseVisualStyleBackColor = True
+        '
+        'btnActivar
+        '
+        Me.btnActivar.Location = New System.Drawing.Point(250, 6)
+        Me.btnActivar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnActivar.Name = "btnActivar"
+        Me.btnActivar.Size = New System.Drawing.Size(75, 19)
+        Me.btnActivar.TabIndex = 3
+        Me.btnActivar.Text = "Activar"
+        Me.btnActivar.UseVisualStyleBackColor = True
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Location = New System.Drawing.Point(142, 6)
+        Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 19)
+        Me.btnEliminar.TabIndex = 2
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = True
+        '
+        'chkSeleccionar
+        '
+        Me.chkSeleccionar.AutoSize = True
+        Me.chkSeleccionar.Location = New System.Drawing.Point(10, 8)
+        Me.chkSeleccionar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkSeleccionar.Name = "chkSeleccionar"
+        Me.chkSeleccionar.Size = New System.Drawing.Size(82, 17)
+        Me.chkSeleccionar.TabIndex = 1
+        Me.chkSeleccionar.Text = "Seleccionar"
+        Me.chkSeleccionar.UseVisualStyleBackColor = True
         '
         'lblTotalCategorias
         '
         Me.lblTotalCategorias.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblTotalCategorias.Location = New System.Drawing.Point(657, 14)
+        Me.lblTotalCategorias.Location = New System.Drawing.Point(491, 11)
+        Me.lblTotalCategorias.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblTotalCategorias.Name = "lblTotalCategorias"
-        Me.lblTotalCategorias.Size = New System.Drawing.Size(231, 17)
+        Me.lblTotalCategorias.Size = New System.Drawing.Size(173, 14)
         Me.lblTotalCategorias.TabIndex = 0
         Me.lblTotalCategorias.Text = "Total de registros:"
         Me.lblTotalCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -189,28 +242,41 @@ Partial Class frmCategorias
         Me.TabPage2.Controls.Add(Me.btnCancelar)
         Me.TabPage2.Controls.Add(Me.btnInsertar)
         Me.TabPage2.Controls.Add(Me.gbxDatosCategoria)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(899, 474)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TabPage2.Size = New System.Drawing.Size(672, 383)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Mantenimiento"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.Location = New System.Drawing.Point(184, 204)
+        Me.btnActualizar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(75, 19)
+        Me.btnActualizar.TabIndex = 3
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = True
+        '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(499, 210)
+        Me.btnCancelar.Location = New System.Drawing.Point(374, 204)
+        Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(100, 23)
+        Me.btnCancelar.Size = New System.Drawing.Size(75, 19)
         Me.btnCancelar.TabIndex = 2
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'btnInsertar
         '
-        Me.btnInsertar.Location = New System.Drawing.Point(245, 210)
+        Me.btnInsertar.Location = New System.Drawing.Point(184, 204)
+        Me.btnInsertar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnInsertar.Name = "btnInsertar"
-        Me.btnInsertar.Size = New System.Drawing.Size(100, 23)
+        Me.btnInsertar.Size = New System.Drawing.Size(75, 19)
         Me.btnInsertar.TabIndex = 1
         Me.btnInsertar.Text = "Insertar"
         Me.btnInsertar.UseVisualStyleBackColor = True
@@ -219,59 +285,68 @@ Partial Class frmCategorias
         '
         Me.gbxDatosCategoria.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbxDatosCategoria.Controls.Add(Me.cmbCategoria)
+        Me.gbxDatosCategoria.Controls.Add(Me.lblCategoria)
         Me.gbxDatosCategoria.Controls.Add(Me.txtDescripcion)
         Me.gbxDatosCategoria.Controls.Add(Me.txtNombre)
         Me.gbxDatosCategoria.Controls.Add(Me.txtID)
         Me.gbxDatosCategoria.Controls.Add(Me.lblDescripcion)
         Me.gbxDatosCategoria.Controls.Add(Me.lblCategoriaNombre)
-        Me.gbxDatosCategoria.Location = New System.Drawing.Point(40, 10)
+        Me.gbxDatosCategoria.Location = New System.Drawing.Point(30, 8)
+        Me.gbxDatosCategoria.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.gbxDatosCategoria.Name = "gbxDatosCategoria"
-        Me.gbxDatosCategoria.Size = New System.Drawing.Size(819, 187)
+        Me.gbxDatosCategoria.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.gbxDatosCategoria.Size = New System.Drawing.Size(614, 192)
         Me.gbxDatosCategoria.TabIndex = 0
         Me.gbxDatosCategoria.TabStop = False
         Me.gbxDatosCategoria.Text = "Datos de la Categoría"
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(205, 89)
+        Me.txtDescripcion.Location = New System.Drawing.Point(154, 104)
+        Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtDescripcion.MaxLength = 255
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(354, 80)
+        Me.txtDescripcion.Size = New System.Drawing.Size(266, 66)
         Me.txtDescripcion.TabIndex = 2
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(205, 39)
+        Me.txtNombre.Location = New System.Drawing.Point(154, 68)
+        Me.txtNombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(354, 22)
+        Me.txtNombre.Size = New System.Drawing.Size(266, 20)
         Me.txtNombre.TabIndex = 1
         '
         'txtID
         '
         Me.txtID.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtID.Location = New System.Drawing.Point(713, 0)
+        Me.txtID.Location = New System.Drawing.Point(535, 0)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(100, 22)
+        Me.txtID.Size = New System.Drawing.Size(76, 20)
         Me.txtID.TabIndex = 0
         Me.txtID.TabStop = False
         Me.txtID.Visible = False
         '
         'lblDescripcion
         '
-        Me.lblDescripcion.Location = New System.Drawing.Point(99, 88)
+        Me.lblDescripcion.Location = New System.Drawing.Point(77, 104)
+        Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDescripcion.Name = "lblDescripcion"
-        Me.lblDescripcion.Size = New System.Drawing.Size(100, 23)
+        Me.lblDescripcion.Size = New System.Drawing.Size(75, 19)
         Me.lblDescripcion.TabIndex = 1
         Me.lblDescripcion.Text = "Descripción:"
         Me.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblCategoriaNombre
         '
-        Me.lblCategoriaNombre.Location = New System.Drawing.Point(102, 39)
+        Me.lblCategoriaNombre.Location = New System.Drawing.Point(77, 68)
+        Me.lblCategoriaNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCategoriaNombre.Name = "lblCategoriaNombre"
-        Me.lblCategoriaNombre.Size = New System.Drawing.Size(97, 22)
+        Me.lblCategoriaNombre.Size = New System.Drawing.Size(73, 18)
         Me.lblCategoriaNombre.TabIndex = 0
         Me.lblCategoriaNombre.Text = "(*) Nombre:"
         Me.lblCategoriaNombre.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -280,58 +355,32 @@ Partial Class frmCategorias
         '
         Me.epError.ContainerControl = Me
         '
-        'btnActualizar
+        'lblCategoria
         '
-        Me.btnActualizar.Location = New System.Drawing.Point(245, 210)
-        Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(100, 23)
-        Me.btnActualizar.TabIndex = 3
-        Me.btnActualizar.Text = "Actualizar"
-        Me.btnActualizar.UseVisualStyleBackColor = True
+        Me.lblCategoria.Location = New System.Drawing.Point(76, 35)
+        Me.lblCategoria.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblCategoria.Name = "lblCategoria"
+        Me.lblCategoria.Size = New System.Drawing.Size(73, 18)
+        Me.lblCategoria.TabIndex = 3
+        Me.lblCategoria.Text = "(*) Categoría:"
+        Me.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'chkSeleccionar
+        'cmbCategoria
         '
-        Me.chkSeleccionar.AutoSize = True
-        Me.chkSeleccionar.Location = New System.Drawing.Point(14, 10)
-        Me.chkSeleccionar.Name = "chkSeleccionar"
-        Me.chkSeleccionar.Size = New System.Drawing.Size(104, 21)
-        Me.chkSeleccionar.TabIndex = 1
-        Me.chkSeleccionar.Text = "Seleccionar"
-        Me.chkSeleccionar.UseVisualStyleBackColor = True
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.Location = New System.Drawing.Point(189, 8)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(100, 23)
-        Me.btnEliminar.TabIndex = 2
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = True
-        '
-        'btnActivar
-        '
-        Me.btnActivar.Location = New System.Drawing.Point(334, 8)
-        Me.btnActivar.Name = "btnActivar"
-        Me.btnActivar.Size = New System.Drawing.Size(100, 23)
-        Me.btnActivar.TabIndex = 3
-        Me.btnActivar.Text = "Activar"
-        Me.btnActivar.UseVisualStyleBackColor = True
-        '
-        'btnDesactivar
-        '
-        Me.btnDesactivar.Location = New System.Drawing.Point(479, 8)
-        Me.btnDesactivar.Name = "btnDesactivar"
-        Me.btnDesactivar.Size = New System.Drawing.Size(100, 23)
-        Me.btnDesactivar.TabIndex = 4
-        Me.btnDesactivar.Text = "Desactivar"
-        Me.btnDesactivar.UseVisualStyleBackColor = True
+        Me.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategoria.FormattingEnabled = True
+        Me.cmbCategoria.Location = New System.Drawing.Point(154, 35)
+        Me.cmbCategoria.Name = "cmbCategoria"
+        Me.cmbCategoria.Size = New System.Drawing.Size(266, 21)
+        Me.cmbCategoria.TabIndex = 4
         '
         'frmCategorias
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(907, 503)
+        Me.ClientSize = New System.Drawing.Size(680, 409)
         Me.Controls.Add(Me.TabControlCategorias)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmCategorias"
         Me.Text = "Categorías"
         Me.TabControlCategorias.ResumeLayout(False)
@@ -376,4 +425,6 @@ Partial Class frmCategorias
     Friend WithEvents btnActivar As Button
     Friend WithEvents btnEliminar As Button
     Friend WithEvents chkSeleccionar As CheckBox
+    Friend WithEvents cmbCategoria As ComboBox
+    Friend WithEvents lblCategoria As Label
 End Class

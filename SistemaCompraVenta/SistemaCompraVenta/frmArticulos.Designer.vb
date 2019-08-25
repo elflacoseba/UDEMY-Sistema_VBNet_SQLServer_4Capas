@@ -31,7 +31,7 @@ Partial Class frmArticulos
         Me.btnActualizar = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnInsertar = New System.Windows.Forms.Button()
-        Me.gbxDatosCategoria = New System.Windows.Forms.GroupBox()
+        Me.gbxDatosArticulo = New System.Windows.Forms.GroupBox()
         Me.lblCategoriaNombre = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.btnDesactivar = New System.Windows.Forms.Button()
@@ -49,8 +49,10 @@ Partial Class frmArticulos
         Me.pnlGrilla = New System.Windows.Forms.Panel()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabControlCategorias = New System.Windows.Forms.TabControl()
+        Me.lblCategoria = New System.Windows.Forms.Label()
+        Me.cmbCategorias = New System.Windows.Forms.ComboBox()
         CType(Me.epError, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbxDatosCategoria.SuspendLayout()
+        Me.gbxDatosArticulo.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.pnlPie.SuspendLayout()
         Me.pnlBuscador.SuspendLayout()
@@ -66,7 +68,7 @@ Partial Class frmArticulos
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(154, 72)
+        Me.txtDescripcion.Location = New System.Drawing.Point(154, 117)
         Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDescripcion.MaxLength = 255
         Me.txtDescripcion.Multiline = True
@@ -76,7 +78,7 @@ Partial Class frmArticulos
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(154, 32)
+        Me.txtNombre.Location = New System.Drawing.Point(154, 77)
         Me.txtNombre.Margin = New System.Windows.Forms.Padding(2)
         Me.txtNombre.MaxLength = 50
         Me.txtNombre.Name = "txtNombre"
@@ -96,7 +98,7 @@ Partial Class frmArticulos
         '
         'lblDescripcion
         '
-        Me.lblDescripcion.Location = New System.Drawing.Point(74, 72)
+        Me.lblDescripcion.Location = New System.Drawing.Point(77, 117)
         Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(75, 19)
@@ -106,7 +108,7 @@ Partial Class frmArticulos
         '
         'btnActualizar
         '
-        Me.btnActualizar.Location = New System.Drawing.Point(184, 171)
+        Me.btnActualizar.Location = New System.Drawing.Point(184, 222)
         Me.btnActualizar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(75, 19)
@@ -116,7 +118,7 @@ Partial Class frmArticulos
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(374, 171)
+        Me.btnCancelar.Location = New System.Drawing.Point(374, 222)
         Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 19)
@@ -126,7 +128,7 @@ Partial Class frmArticulos
         '
         'btnInsertar
         '
-        Me.btnInsertar.Location = New System.Drawing.Point(184, 171)
+        Me.btnInsertar.Location = New System.Drawing.Point(184, 222)
         Me.btnInsertar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(75, 19)
@@ -134,27 +136,29 @@ Partial Class frmArticulos
         Me.btnInsertar.Text = "Insertar"
         Me.btnInsertar.UseVisualStyleBackColor = True
         '
-        'gbxDatosCategoria
+        'gbxDatosArticulo
         '
-        Me.gbxDatosCategoria.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.gbxDatosArticulo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbxDatosCategoria.Controls.Add(Me.txtDescripcion)
-        Me.gbxDatosCategoria.Controls.Add(Me.txtNombre)
-        Me.gbxDatosCategoria.Controls.Add(Me.txtID)
-        Me.gbxDatosCategoria.Controls.Add(Me.lblDescripcion)
-        Me.gbxDatosCategoria.Controls.Add(Me.lblCategoriaNombre)
-        Me.gbxDatosCategoria.Location = New System.Drawing.Point(30, 8)
-        Me.gbxDatosCategoria.Margin = New System.Windows.Forms.Padding(2)
-        Me.gbxDatosCategoria.Name = "gbxDatosCategoria"
-        Me.gbxDatosCategoria.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbxDatosCategoria.Size = New System.Drawing.Size(614, 152)
-        Me.gbxDatosCategoria.TabIndex = 0
-        Me.gbxDatosCategoria.TabStop = False
-        Me.gbxDatosCategoria.Text = "Datos de la Categoría"
+        Me.gbxDatosArticulo.Controls.Add(Me.cmbCategorias)
+        Me.gbxDatosArticulo.Controls.Add(Me.lblCategoria)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtDescripcion)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtNombre)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtID)
+        Me.gbxDatosArticulo.Controls.Add(Me.lblDescripcion)
+        Me.gbxDatosArticulo.Controls.Add(Me.lblCategoriaNombre)
+        Me.gbxDatosArticulo.Location = New System.Drawing.Point(30, 8)
+        Me.gbxDatosArticulo.Margin = New System.Windows.Forms.Padding(2)
+        Me.gbxDatosArticulo.Name = "gbxDatosArticulo"
+        Me.gbxDatosArticulo.Padding = New System.Windows.Forms.Padding(2)
+        Me.gbxDatosArticulo.Size = New System.Drawing.Size(614, 210)
+        Me.gbxDatosArticulo.TabIndex = 0
+        Me.gbxDatosArticulo.TabStop = False
+        Me.gbxDatosArticulo.Text = "Datos del Artículo"
         '
         'lblCategoriaNombre
         '
-        Me.lblCategoriaNombre.Location = New System.Drawing.Point(76, 32)
+        Me.lblCategoriaNombre.Location = New System.Drawing.Point(77, 77)
         Me.lblCategoriaNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCategoriaNombre.Name = "lblCategoriaNombre"
         Me.lblCategoriaNombre.Size = New System.Drawing.Size(73, 18)
@@ -167,7 +171,7 @@ Partial Class frmArticulos
         Me.TabPage2.Controls.Add(Me.btnActualizar)
         Me.TabPage2.Controls.Add(Me.btnCancelar)
         Me.TabPage2.Controls.Add(Me.btnInsertar)
-        Me.TabPage2.Controls.Add(Me.gbxDatosCategoria)
+        Me.TabPage2.Controls.Add(Me.gbxDatosArticulo)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(2)
         Me.TabPage2.Name = "TabPage2"
@@ -351,6 +355,25 @@ Partial Class frmArticulos
         Me.TabControlCategorias.Size = New System.Drawing.Size(1008, 450)
         Me.TabControlCategorias.TabIndex = 1
         '
+        'lblCategoria
+        '
+        Me.lblCategoria.Location = New System.Drawing.Point(74, 38)
+        Me.lblCategoria.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblCategoria.Name = "lblCategoria"
+        Me.lblCategoria.Size = New System.Drawing.Size(73, 18)
+        Me.lblCategoria.TabIndex = 3
+        Me.lblCategoria.Text = "(*) Categoría:"
+        Me.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmbCategorias
+        '
+        Me.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategorias.FormattingEnabled = True
+        Me.cmbCategorias.Location = New System.Drawing.Point(154, 38)
+        Me.cmbCategorias.Name = "cmbCategorias"
+        Me.cmbCategorias.Size = New System.Drawing.Size(266, 21)
+        Me.cmbCategorias.TabIndex = 4
+        '
         'frmArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,8 +384,8 @@ Partial Class frmArticulos
         Me.Name = "frmArticulos"
         Me.Text = "Artículos"
         CType(Me.epError, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbxDatosCategoria.ResumeLayout(False)
-        Me.gbxDatosCategoria.PerformLayout()
+        Me.gbxDatosArticulo.ResumeLayout(False)
+        Me.gbxDatosArticulo.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         Me.pnlPie.ResumeLayout(False)
         Me.pnlPie.PerformLayout()
@@ -396,10 +419,12 @@ Partial Class frmArticulos
     Friend WithEvents btnActualizar As Button
     Friend WithEvents btnCancelar As Button
     Friend WithEvents btnInsertar As Button
-    Friend WithEvents gbxDatosCategoria As GroupBox
+    Friend WithEvents gbxDatosArticulo As GroupBox
     Friend WithEvents txtDescripcion As TextBox
     Friend WithEvents txtNombre As TextBox
     Friend WithEvents txtID As TextBox
     Friend WithEvents lblDescripcion As Label
     Friend WithEvents lblCategoriaNombre As Label
+    Friend WithEvents cmbCategorias As ComboBox
+    Friend WithEvents lblCategoria As Label
 End Class

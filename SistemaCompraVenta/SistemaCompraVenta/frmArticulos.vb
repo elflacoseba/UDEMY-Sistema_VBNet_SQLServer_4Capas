@@ -1,6 +1,7 @@
 ﻿Public Class frmArticulos
     Private Sub FrmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Listar()
+        CargarComboCategorias()
     End Sub
 
     Private Sub Formato()
@@ -86,5 +87,23 @@
         If e.KeyCode = Keys.Enter Then
             Me.btnBuscarArticulo.PerformClick()
         End If
+    End Sub
+
+    Private Sub CargarComboCategorias()
+        Dim oNegCat As Negocios.Categorias
+        Try
+            oNegCat = New Negocios.Categorias
+
+            With cmbCategorias
+                .DataSource = oNegCat.Listar(Entidades.Categoria.EstadoListarCategorias.Activas)
+                .ValueMember = "Id"
+                .DisplayMember = "Nombre"
+            End With
+
+        Catch ex As Exception
+            MessageBox.Show("Ha ocurrido un error al cargar las categorías." & vbCrLf & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            oNegCat = Nothing
+        End Try
     End Sub
 End Class
