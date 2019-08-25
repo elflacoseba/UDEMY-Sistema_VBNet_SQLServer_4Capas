@@ -1,5 +1,14 @@
 ﻿Public Class Categoria
 
+    ''' <summary>
+    ''' Enumerable que indica los tipos de Estado de las Categorías.
+    ''' </summary>
+    Public Enum EstadoListarCategorias
+        Todas
+        Activas
+        Inactivas
+    End Enum
+
 #Region "Campos"
 
     Private _CategoriaID As Integer

@@ -3,8 +3,9 @@
     ''' <summary>
     ''' Devuelve un listado con todas las Categorías de la base de datos.
     ''' </summary>
+    ''' <param name="TipoEstado"></param>
     ''' <returns></returns>
-    Public Function Listar() As DataTable
+    Public Function Listar(TipoEstado As Entidades.Categoria.EstadoListarCategorias) As DataTable
 
         Dim oDatos As Datos.Categorias
         Dim Tabla As DataTable
@@ -14,7 +15,7 @@
 
             Tabla = New DataTable
 
-            Tabla = oDatos.Listar()
+            Tabla = oDatos.Listar(TipoEstado)
 
             Return Tabla
 

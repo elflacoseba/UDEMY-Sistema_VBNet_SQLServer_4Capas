@@ -6,8 +6,9 @@ Public Class Categorias
     ''' <summary>
     ''' Obtiene todas las Categorías de la base de datos.
     ''' </summary>
+    ''' <param name="TipoEstado"></param>
     ''' <returns></returns>
-    Public Function Listar() As DataTable
+    Public Function Listar(TipoEstado As Entidades.Categoria.EstadoListarCategorias) As DataTable
 
         Dim Resultados As SqlDataReader
 
@@ -16,6 +17,19 @@ Public Class Categorias
             Using cmd As New SqlCommand("Categorias_Listar", MyBase.Cnn)
 
                 cmd.CommandType = CommandType.StoredProcedure
+
+                Select Case TipoEstado
+                    Case Entidades.Categoria.EstadoListarCategorias.Activas
+                        cmd.Parameters.AddWithValue("@TipoEstado", "A")
+                        Exit Select
+                    Case Entidades.Categoria.EstadoListarCategorias.Inactivas
+                        cmd.Parameters.AddWithValue("@TipoEstado", "I")
+                        Exit Select
+                    Case Else
+                        cmd.Parameters.AddWithValue("@TipoEstado", "T")
+                        Exit Select
+                End Select
+
                 MyBase.Cnn.Open()
 
                 Resultados = cmd.ExecuteReader()
