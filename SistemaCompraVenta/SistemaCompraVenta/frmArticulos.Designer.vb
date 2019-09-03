@@ -32,6 +32,12 @@ Partial Class frmArticulos
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.btnInsertar = New System.Windows.Forms.Button()
         Me.gbxDatosArticulo = New System.Windows.Forms.GroupBox()
+        Me.picImagen = New System.Windows.Forms.PictureBox()
+        Me.btnCargarImagen = New System.Windows.Forms.Button()
+        Me.txtImagen = New System.Windows.Forms.TextBox()
+        Me.lblImagen = New System.Windows.Forms.Label()
+        Me.cmbCategorias = New System.Windows.Forms.ComboBox()
+        Me.lblCategoria = New System.Windows.Forms.Label()
         Me.lblCategoriaNombre = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.btnDesactivar = New System.Windows.Forms.Button()
@@ -48,24 +54,24 @@ Partial Class frmArticulos
         Me.dgvListadoArticulos = New System.Windows.Forms.DataGridView()
         Me.pnlGrilla = New System.Windows.Forms.Panel()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabControlCategorias = New System.Windows.Forms.TabControl()
-        Me.lblCategoria = New System.Windows.Forms.Label()
-        Me.cmbCategorias = New System.Windows.Forms.ComboBox()
-        Me.txtImagen = New System.Windows.Forms.TextBox()
-        Me.lblImagen = New System.Windows.Forms.Label()
-        Me.btnCargarImagen = New System.Windows.Forms.Button()
-        Me.picImagen = New System.Windows.Forms.PictureBox()
+        Me.TabControlArticulos = New System.Windows.Forms.TabControl()
         Me.OpenFileDialogIMG = New System.Windows.Forms.OpenFileDialog()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtStock = New System.Windows.Forms.TextBox()
+        Me.lblStock = New System.Windows.Forms.Label()
+        Me.txtPrecioVenta = New System.Windows.Forms.TextBox()
+        Me.lblPrecioVenta = New System.Windows.Forms.Label()
         CType(Me.epError, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbxDatosArticulo.SuspendLayout()
+        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.pnlPie.SuspendLayout()
         Me.pnlBuscador.SuspendLayout()
         CType(Me.dgvListadoArticulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlGrilla.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabControlCategorias.SuspendLayout()
-        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControlArticulos.SuspendLayout()
         Me.SuspendLayout()
         '
         'epError
@@ -74,27 +80,27 @@ Partial Class frmArticulos
         '
         'txtDescripcion
         '
-        Me.txtDescripcion.Location = New System.Drawing.Point(154, 117)
+        Me.txtDescripcion.Location = New System.Drawing.Point(154, 221)
         Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDescripcion.MaxLength = 255
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(266, 66)
-        Me.txtDescripcion.TabIndex = 2
+        Me.txtDescripcion.TabIndex = 5
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(154, 77)
+        Me.txtNombre.Location = New System.Drawing.Point(154, 113)
         Me.txtNombre.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtNombre.MaxLength = 50
+        Me.txtNombre.MaxLength = 100
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(266, 20)
-        Me.txtNombre.TabIndex = 1
+        Me.txtNombre.TabIndex = 2
         '
         'txtID
         '
         Me.txtID.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtID.Location = New System.Drawing.Point(884, 0)
+        Me.txtID.Location = New System.Drawing.Point(864, 0)
         Me.txtID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(76, 20)
@@ -104,7 +110,7 @@ Partial Class frmArticulos
         '
         'lblDescripcion
         '
-        Me.lblDescripcion.Location = New System.Drawing.Point(77, 117)
+        Me.lblDescripcion.Location = New System.Drawing.Point(77, 221)
         Me.lblDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDescripcion.Name = "lblDescripcion"
         Me.lblDescripcion.Size = New System.Drawing.Size(75, 19)
@@ -114,27 +120,27 @@ Partial Class frmArticulos
         '
         'btnActualizar
         '
-        Me.btnActualizar.Location = New System.Drawing.Point(184, 222)
+        Me.btnActualizar.Location = New System.Drawing.Point(375, 325)
         Me.btnActualizar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(75, 19)
-        Me.btnActualizar.TabIndex = 3
+        Me.btnActualizar.TabIndex = 6
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(374, 222)
+        Me.btnCancelar.Location = New System.Drawing.Point(553, 325)
         Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 19)
-        Me.btnCancelar.TabIndex = 2
+        Me.btnCancelar.TabIndex = 7
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'btnInsertar
         '
-        Me.btnInsertar.Location = New System.Drawing.Point(184, 222)
+        Me.btnInsertar.Location = New System.Drawing.Point(375, 325)
         Me.btnInsertar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(75, 19)
@@ -146,6 +152,12 @@ Partial Class frmArticulos
         '
         Me.gbxDatosArticulo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtStock)
+        Me.gbxDatosArticulo.Controls.Add(Me.lblStock)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtPrecioVenta)
+        Me.gbxDatosArticulo.Controls.Add(Me.lblPrecioVenta)
+        Me.gbxDatosArticulo.Controls.Add(Me.txtCodigo)
+        Me.gbxDatosArticulo.Controls.Add(Me.Label1)
         Me.gbxDatosArticulo.Controls.Add(Me.picImagen)
         Me.gbxDatosArticulo.Controls.Add(Me.btnCargarImagen)
         Me.gbxDatosArticulo.Controls.Add(Me.txtImagen)
@@ -161,14 +173,72 @@ Partial Class frmArticulos
         Me.gbxDatosArticulo.Margin = New System.Windows.Forms.Padding(2)
         Me.gbxDatosArticulo.Name = "gbxDatosArticulo"
         Me.gbxDatosArticulo.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbxDatosArticulo.Size = New System.Drawing.Size(963, 210)
+        Me.gbxDatosArticulo.Size = New System.Drawing.Size(943, 313)
         Me.gbxDatosArticulo.TabIndex = 0
         Me.gbxDatosArticulo.TabStop = False
         Me.gbxDatosArticulo.Text = "Datos del Artículo"
         '
+        'picImagen
+        '
+        Me.picImagen.Location = New System.Drawing.Point(523, 77)
+        Me.picImagen.Name = "picImagen"
+        Me.picImagen.Size = New System.Drawing.Size(266, 210)
+        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picImagen.TabIndex = 8
+        Me.picImagen.TabStop = False
+        '
+        'btnCargarImagen
+        '
+        Me.btnCargarImagen.Location = New System.Drawing.Point(793, 39)
+        Me.btnCargarImagen.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnCargarImagen.Name = "btnCargarImagen"
+        Me.btnCargarImagen.Size = New System.Drawing.Size(75, 20)
+        Me.btnCargarImagen.TabIndex = 7
+        Me.btnCargarImagen.Text = "Cargar"
+        Me.btnCargarImagen.UseVisualStyleBackColor = True
+        '
+        'txtImagen
+        '
+        Me.txtImagen.Location = New System.Drawing.Point(523, 39)
+        Me.txtImagen.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtImagen.MaxLength = 50
+        Me.txtImagen.Name = "txtImagen"
+        Me.txtImagen.ReadOnly = True
+        Me.txtImagen.Size = New System.Drawing.Size(266, 20)
+        Me.txtImagen.TabIndex = 6
+        '
+        'lblImagen
+        '
+        Me.lblImagen.Location = New System.Drawing.Point(446, 39)
+        Me.lblImagen.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblImagen.Name = "lblImagen"
+        Me.lblImagen.Size = New System.Drawing.Size(73, 18)
+        Me.lblImagen.TabIndex = 5
+        Me.lblImagen.Text = "Imagen:"
+        Me.lblImagen.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmbCategorias
+        '
+        Me.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCategorias.FormattingEnabled = True
+        Me.cmbCategorias.Location = New System.Drawing.Point(154, 38)
+        Me.cmbCategorias.Name = "cmbCategorias"
+        Me.cmbCategorias.Size = New System.Drawing.Size(266, 21)
+        Me.cmbCategorias.TabIndex = 4
+        '
+        'lblCategoria
+        '
+        Me.lblCategoria.Location = New System.Drawing.Point(74, 38)
+        Me.lblCategoria.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblCategoria.Name = "lblCategoria"
+        Me.lblCategoria.Size = New System.Drawing.Size(73, 18)
+        Me.lblCategoria.TabIndex = 3
+        Me.lblCategoria.Text = "(*) Categoría:"
+        Me.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'lblCategoriaNombre
         '
-        Me.lblCategoriaNombre.Location = New System.Drawing.Point(77, 77)
+        Me.lblCategoriaNombre.Location = New System.Drawing.Point(77, 113)
         Me.lblCategoriaNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCategoriaNombre.Name = "lblCategoriaNombre"
         Me.lblCategoriaNombre.Size = New System.Drawing.Size(73, 18)
@@ -353,75 +423,17 @@ Partial Class frmArticulos
         Me.TabPage1.Text = "Listado"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabControlCategorias
+        'TabControlArticulos
         '
-        Me.TabControlCategorias.Controls.Add(Me.TabPage1)
-        Me.TabControlCategorias.Controls.Add(Me.TabPage2)
-        Me.TabControlCategorias.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControlCategorias.Location = New System.Drawing.Point(0, 0)
-        Me.TabControlCategorias.Margin = New System.Windows.Forms.Padding(2)
-        Me.TabControlCategorias.Name = "TabControlCategorias"
-        Me.TabControlCategorias.SelectedIndex = 0
-        Me.TabControlCategorias.Size = New System.Drawing.Size(1008, 450)
-        Me.TabControlCategorias.TabIndex = 1
-        '
-        'lblCategoria
-        '
-        Me.lblCategoria.Location = New System.Drawing.Point(74, 38)
-        Me.lblCategoria.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblCategoria.Name = "lblCategoria"
-        Me.lblCategoria.Size = New System.Drawing.Size(73, 18)
-        Me.lblCategoria.TabIndex = 3
-        Me.lblCategoria.Text = "(*) Categoría:"
-        Me.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cmbCategorias
-        '
-        Me.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCategorias.FormattingEnabled = True
-        Me.cmbCategorias.Location = New System.Drawing.Point(154, 38)
-        Me.cmbCategorias.Name = "cmbCategorias"
-        Me.cmbCategorias.Size = New System.Drawing.Size(266, 21)
-        Me.cmbCategorias.TabIndex = 4
-        '
-        'txtImagen
-        '
-        Me.txtImagen.Location = New System.Drawing.Point(523, 39)
-        Me.txtImagen.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtImagen.MaxLength = 50
-        Me.txtImagen.Name = "txtImagen"
-        Me.txtImagen.ReadOnly = True
-        Me.txtImagen.Size = New System.Drawing.Size(266, 20)
-        Me.txtImagen.TabIndex = 6
-        '
-        'lblImagen
-        '
-        Me.lblImagen.Location = New System.Drawing.Point(446, 39)
-        Me.lblImagen.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblImagen.Name = "lblImagen"
-        Me.lblImagen.Size = New System.Drawing.Size(73, 18)
-        Me.lblImagen.TabIndex = 5
-        Me.lblImagen.Text = "Imagen:"
-        Me.lblImagen.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'btnCargarImagen
-        '
-        Me.btnCargarImagen.Location = New System.Drawing.Point(793, 39)
-        Me.btnCargarImagen.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnCargarImagen.Name = "btnCargarImagen"
-        Me.btnCargarImagen.Size = New System.Drawing.Size(75, 20)
-        Me.btnCargarImagen.TabIndex = 7
-        Me.btnCargarImagen.Text = "Cargar"
-        Me.btnCargarImagen.UseVisualStyleBackColor = True
-        '
-        'picImagen
-        '
-        Me.picImagen.Location = New System.Drawing.Point(523, 77)
-        Me.picImagen.Name = "picImagen"
-        Me.picImagen.Size = New System.Drawing.Size(266, 128)
-        Me.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picImagen.TabIndex = 8
-        Me.picImagen.TabStop = False
+        Me.TabControlArticulos.Controls.Add(Me.TabPage1)
+        Me.TabControlArticulos.Controls.Add(Me.TabPage2)
+        Me.TabControlArticulos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControlArticulos.Location = New System.Drawing.Point(0, 0)
+        Me.TabControlArticulos.Margin = New System.Windows.Forms.Padding(2)
+        Me.TabControlArticulos.Name = "TabControlArticulos"
+        Me.TabControlArticulos.SelectedIndex = 0
+        Me.TabControlArticulos.Size = New System.Drawing.Size(1008, 450)
+        Me.TabControlArticulos.TabIndex = 1
         '
         'OpenFileDialogIMG
         '
@@ -429,18 +441,76 @@ Partial Class frmArticulos
         Me.OpenFileDialogIMG.Filter = "Imágenes (*.jpg, *jpeg, *.png) | *.jpg; *.jpeg; *.png"
         Me.OpenFileDialogIMG.Title = "Seleccionar imagen"
         '
+        'txtCodigo
+        '
+        Me.txtCodigo.Location = New System.Drawing.Point(154, 77)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCodigo.MaxLength = 50
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(266, 20)
+        Me.txtCodigo.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(77, 77)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(73, 18)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Código:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtStock
+        '
+        Me.txtStock.Location = New System.Drawing.Point(154, 148)
+        Me.txtStock.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtStock.MaxLength = 10
+        Me.txtStock.Name = "txtStock"
+        Me.txtStock.Size = New System.Drawing.Size(266, 20)
+        Me.txtStock.TabIndex = 3
+        '
+        'lblStock
+        '
+        Me.lblStock.Location = New System.Drawing.Point(77, 148)
+        Me.lblStock.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblStock.Name = "lblStock"
+        Me.lblStock.Size = New System.Drawing.Size(73, 18)
+        Me.lblStock.TabIndex = 13
+        Me.lblStock.Text = "(*) Stock:"
+        Me.lblStock.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtPrecioVenta
+        '
+        Me.txtPrecioVenta.Location = New System.Drawing.Point(154, 184)
+        Me.txtPrecioVenta.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtPrecioVenta.MaxLength = 20
+        Me.txtPrecioVenta.Name = "txtPrecioVenta"
+        Me.txtPrecioVenta.Size = New System.Drawing.Size(266, 20)
+        Me.txtPrecioVenta.TabIndex = 4
+        '
+        'lblPrecioVenta
+        '
+        Me.lblPrecioVenta.Location = New System.Drawing.Point(40, 184)
+        Me.lblPrecioVenta.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblPrecioVenta.Name = "lblPrecioVenta"
+        Me.lblPrecioVenta.Size = New System.Drawing.Size(107, 18)
+        Me.lblPrecioVenta.TabIndex = 11
+        Me.lblPrecioVenta.Text = "(*) Precio de Venta:"
+        Me.lblPrecioVenta.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmArticulos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1008, 450)
-        Me.Controls.Add(Me.TabControlCategorias)
+        Me.Controls.Add(Me.TabControlArticulos)
         Me.Name = "frmArticulos"
         Me.Text = "Artículos"
         CType(Me.epError, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbxDatosArticulo.ResumeLayout(False)
         Me.gbxDatosArticulo.PerformLayout()
+        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.pnlPie.ResumeLayout(False)
         Me.pnlPie.PerformLayout()
@@ -449,14 +519,13 @@ Partial Class frmArticulos
         CType(Me.dgvListadoArticulos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlGrilla.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabControlCategorias.ResumeLayout(False)
-        CType(Me.picImagen, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControlArticulos.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents epError As ErrorProvider
-    Friend WithEvents TabControlCategorias As TabControl
+    Friend WithEvents TabControlArticulos As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents pnlGrilla As Panel
     Friend WithEvents dgvListadoArticulos As DataGridView
@@ -488,4 +557,10 @@ Partial Class frmArticulos
     Friend WithEvents txtImagen As TextBox
     Friend WithEvents lblImagen As Label
     Friend WithEvents OpenFileDialogIMG As OpenFileDialog
+    Friend WithEvents txtCodigo As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtStock As TextBox
+    Friend WithEvents lblStock As Label
+    Friend WithEvents txtPrecioVenta As TextBox
+    Friend WithEvents lblPrecioVenta As Label
 End Class

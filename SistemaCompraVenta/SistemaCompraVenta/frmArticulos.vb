@@ -2,7 +2,7 @@
 
     Private RutaOrigen As String
     Private RutaDestino As String
-    Private Directorio As String = Application.StartupPath
+    Private Directorio As String = Application.StartupPath & "\"
 
     Private Sub FrmArticulos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Listar()
@@ -73,8 +73,13 @@
 
     Private Sub Limpiar()
         txtID.Text = ""
+        txtCodigo.Text = ""
         txtNombre.Text = ""
+        txtStock.Text = ""
+        txtPrecioVenta.Text = ""
         txtDescripcion.Text = ""
+        txtImagen.Text = ""
+        picImagen.Image = Nothing
         btnInsertar.Visible = True
         btnActualizar.Visible = False
         txtBuscar.Text = ""
@@ -118,5 +123,56 @@
             RutaOrigen = OpenFileDialogIMG.FileName
             txtImagen.Text = OpenFileDialogIMG.FileName.Substring(OpenFileDialogIMG.FileName.LastIndexOf("\") + 1)
         End If
+    End Sub
+
+    Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
+        If Me.ValidateChildren AndAlso Not String.IsNullOrEmpty(txtNombre.Text.Trim()) AndAlso cmbCategorias.SelectedIndex >= 0 AndAlso IsNumeric(txtStock.Text) AndAlso IsNumeric(txtPrecioVenta.Text) Then
+            Dim oART As Entidades.Articulo
+            Dim oARTNeg As Negocios.Articulos
+
+            Try
+                oART = New Entidades.Articulo
+                oART.CategoriaID = cmbCategorias.SelectedValue
+                oART.Codigo = txtCodigo.Text.Trim
+                oART.Nombre = txtNombre.Text.Trim
+                oART.Stock = txtStock.Text.Trim
+                oART.PrecioVenta = txtPrecioVenta.Text.Trim
+                oART.Descripcion = txtDescripcion.Text.Trim
+                oART.Imagen = txtImagen.Text.Trim
+
+                oARTNeg = New Negocios.Articulos
+
+                If oARTNeg.Insertar(oART) Then
+                    MsgBox("Se ha insertado correctamente el nuevo Artículo.", vbOKOnly + vbInformation, "Registro correcto")
+
+                    'si tengo una imagen seleccionada
+                    If Not String.IsNullOrEmpty(txtImagen.Text.Trim) Then
+                        'armo la ruta de destino.
+                        RutaDestino = Directorio & txtImagen.Text
+
+                        'copio la imagen al directorio de destino.
+                        FileCopy(RutaOrigen, RutaDestino)
+                    End If
+
+
+                    Me.Listar()
+                Else
+                    MsgBox("No se pudo insertar el Artículo.", vbOKOnly + vbCritical, "Registro incorrecto")
+                End If
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                oART = Nothing
+                oARTNeg = Nothing
+            End Try
+
+        Else
+            MsgBox("Debe ingresar los datos obligatorios (*)", MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fanta ingresar datos")
+        End If
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Limpiar()
+        TabControlArticulos.SelectedIndex = 0
     End Sub
 End Class
